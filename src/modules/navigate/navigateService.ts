@@ -17,13 +17,13 @@ export class NavigateService{
       {
         icon:'icon-play_24',
         name:'播放',
-        route:'/inventory',
+        route:'/subject',
         children:[]
       },
       {
         icon:'icon-tag_24',
         name:'代理',
-        route:'/agent',
+        route:'/agency',
         children:[]
       }
     ];
