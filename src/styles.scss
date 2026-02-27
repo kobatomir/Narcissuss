@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+html,body,.full{
+  height:100%;
+  width:100%;
+  padding: 0;
+  margin: 0;
+}
+body{
+  --main-color:#006fc9;
+}
+.flex{
+  display: flex;
+}
+.flex-align{
+  display: flex;
+  align-items: center;
+}
+.flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-1{
+  flex: 1;
+}
+
+.border-box{
+  box-sizing: border-box;
+}
+
+.relative{
+  position: relative;
+}
+.absolute{
+  position: absolute;
+}
+
+.transition-2{
+  transition: 0.2s ease;
+}
