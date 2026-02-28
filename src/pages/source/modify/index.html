@@ -1,0 +1,39 @@
+<div class="source-modify">
+  <div>
+    {{data?'数据源编辑':'数据源新增' }}
+  </div>
+  @if(form){
+    <form [formGroup]="form">
+      <div>
+        <i class="icon-leaf_one_24"></i>
+        名称
+      </div>
+      <div>
+        <input formControlName="name" />
+      </div>
+      <div>
+        <i class="icon-leaf_one_24"></i>
+       数据源
+      </div>
+      <div>
+        <input formControlName="source" />
+      </div>
+      <div>
+        <i class="icon-leaf_one_24"></i>
+        类型
+      </div>
+      <div>
+        <select formControlName="type" >
+          <option [value]="0" >网页</option>
+          <option [value]="1" >图片</option>
+          <option [value]="2" >视频</option>
+        </select>
+      </div>
+
+    </form>
+  }
+ <div>
+   <action-button on-click="submit()" />
+ </div>
+
+</div>

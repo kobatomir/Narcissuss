@@ -1,7 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import {ActionButton} from '@modules/components';
 import {DialogService} from '@modules/dialog';
 import {SourceModify} from '../modify';
+import {SourceQuery, SourceService} from '../common';
+import {queue} from 'rxjs';
 
 @Component({
   selector: 'source-list',
@@ -11,12 +13,30 @@ import {SourceModify} from '../modify';
   ],
   styleUrl: 'index.scss'
 })
-export class SourceList{
+export class SourceList implements OnInit {
 
-  constructor(private dialog:DialogService) {
+  data = signal<SourceQuery[]>([]);
+
+  constructor(private dialog:DialogService,
+              private service:SourceService) {
   }
 
-  create(){
-     this.dialog.open(SourceModify);
-  }
+   async ngOnInit() {
+        await this.query();
+    }
+
+   create(){
+     this.dialog.open(SourceModify,{disableClose:true})
+       .afterClosed$.subscribe(s=> s?this.query():null);
+   }
+
+   edit(data:SourceQuery){
+     this.dialog.open(SourceModify,{disableClose:true,data:data})
+      .afterClosed$.subscribe(s=> s?this.query():null);
+   }
+
+   async query(){
+     const data= await this.service.query();
+     this.data.set(data);
+   }
 }

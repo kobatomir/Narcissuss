@@ -4,4 +4,16 @@
       <div class="flex-1"></div>
       <action-button icon="add_24" on-click="create()" />
     </div>
+   <div>
+     @for (i of data();track i.id){
+       <div class="fluent-item flex-align">
+         <div class="icon flex-center">
+           <i class="flex-center icon-{{i.type==0?'earth_24':i.type==1?'image_24':'video_28'}}"></i>
+         </div>
+         <span class="flex-1">{{i.name}}</span>
+         <action-button icon="edit_24" on-click="edit(i)" />
+         <action-button icon="code_24" />
+       </div>
+     }
+   </div>
 </div>
