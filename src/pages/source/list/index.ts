@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {ActionButton} from '@modules/components';
+import {DialogService} from '@modules/dialog';
+import {SourceModify} from '../modify';
 
 @Component({
   selector: 'source-list',
@@ -11,4 +13,10 @@ import {ActionButton} from '@modules/components';
 })
 export class SourceList{
 
+  constructor(private dialog:DialogService) {
+  }
+
+  create(){
+     this.dialog.open(SourceModify);
+  }
 }
