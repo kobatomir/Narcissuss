@@ -11,7 +11,7 @@ import {
 import {DialogRef} from '@modules/dialog/DialogRef';
 import {DIALOG_DATA} from '@modules/dialog/InjectionToken';
 import {DialogContainer} from '@modules/dialog/DialogContainer';
-
+export * from "./DialogCloseDirective"
 
 interface DialogInstance {
   id: number;

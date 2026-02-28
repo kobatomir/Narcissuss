@@ -5,13 +5,15 @@ import {DIALOG_DATA} from '@modules/dialog/InjectionToken';
 import {ActionButton} from '@modules/components';
 import {SourceService} from '../common';
 import {DialogRef} from '@modules/dialog/DialogRef';
+import {DialogCloseDirective} from '@modules/dialog';
 
 @Component({
   selector: 'source-modify',
   templateUrl: 'index.html',
   imports: [
     ReactiveFormsModule,
-    ActionButton
+    ActionButton,
+    DialogCloseDirective
   ],
   styleUrl: 'index.scss'
 })
