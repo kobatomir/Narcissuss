@@ -13,18 +13,23 @@ import {NavigateView} from '@modules/navigate';
   template: `
     <div class="full">
       <frame-header />
-      <div class="frame-container">
-             <navigate-view />
-            <router-outlet />
+      <div class="frame-container flex">
+            <navigate-view />
+            <div class="flex-1 content-container">
+              <router-outlet />
+            </div>
       </div>
     </div>
   `,
   styles:[`
    .frame-container {
      width: 100%;
-     height: calc(100% - 2.5vw);
+     height: calc(100% - max(2.5vw,48px));
      overflow: hidden;
      background-color: rgb(242, 242, 242);
+   }
+   .content-container{
+     padding:16px 20px 20px 20px;
    }
   `]
 })

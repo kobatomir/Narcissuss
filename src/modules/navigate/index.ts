@@ -9,13 +9,19 @@ import {NavigateService} from '@modules/navigate/navigateService';
   ],
   providers:[NavigateService],
   template: `
-    <div>
+    <div class="navigate-view">
       @for (d of data(); track $index) {
             <navigate-item [data]="d" [level]="0" />
           }
     </div>
 
-  `
+  `,
+  styles: [`
+  .navigate-view{
+    overflow-y: auto;
+    padding: 10px 0;
+  }
+  `]
 })
 export class NavigateView {
 
