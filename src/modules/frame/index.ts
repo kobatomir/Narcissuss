@@ -29,7 +29,7 @@ import {NavigateView} from '@modules/navigate';
      background-color: rgb(242, 242, 242);
    }
    .content-container{
-     padding:16px 20px 20px 20px;
+     padding:10px 20px 20px 20px;
    }
   `]
 })
