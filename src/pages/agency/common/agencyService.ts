@@ -10,8 +10,9 @@ export class AgencyService {
   constructor(private api:AgencyApi) {
   }
 
-  query(){
-
+  async query(){
+     const data=await this.api.query();
+     this.data.set(data);
   }
 
 }

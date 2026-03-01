@@ -41,7 +41,7 @@ export class AgencyModify{
 
   async submit(){
     const x=  this.form?.value;
-    //const result=this.data?await this.service.update(x) : await this.service.create(x);
-    this.ref.close();
+    const result=this.data?await this.api.update(x) : await this.api.create(x);
+    this.ref.close(result);
   }
 }

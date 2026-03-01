@@ -1,8 +1,6 @@
-export interface AgencyEntity{
+import {AgencyCreator} from './AgencyCreator';
+
+export interface AgencyEntity extends AgencyCreator{
   id:string;
-  enabled:boolean;
-  name:string;
-  source:string;
-  target:string;
-  remark:string;
+
 }
