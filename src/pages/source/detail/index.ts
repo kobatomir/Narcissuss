@@ -10,9 +10,10 @@ import {FormsModule} from '@angular/forms';
 })
 export class SourceDetail{
   options = {
-    theme: 'vs-dark',
+    theme: 'vs-light',
     language: 'javascript',
     automaticLayout: true,
+    readOnly: true,
   };
 
   code:string=` alert(1);`;
