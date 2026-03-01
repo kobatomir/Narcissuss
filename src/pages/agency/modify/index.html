@@ -1,0 +1,46 @@
+<div class="agency-modify">
+  <div class="flex-align">
+    <span class="flex-1">{{data?'编辑代理':'新增代理' }}</span>
+    <action-button icon="dismiss_28" dialogClose="" />
+  </div>
+  @if(form){
+    <form [formGroup]="form">
+      <div>
+        <i class="icon-leaf_one_24"></i>
+        名称
+      </div>
+      <div>
+        <input formControlName="name" />
+      </div>
+      <div>
+        <i class="icon-leaf_one_24"></i>
+        源地址
+      </div>
+      <div>
+        <input formControlName="source" />
+      </div>
+      <div>
+        <i class="icon-leaf_one_24"></i>
+        目标地址
+      </div>
+      <div>
+        <input formControlName="target" />
+      </div>
+      <div>
+        <i class="icon-leaf_one_24"></i>
+        启用
+      </div>
+      <div>
+        <input type="checkbox" formControlName="enabled" />启用
+      </div>
+      <div>
+        <i class="icon-leaf_one_24"></i>
+        备注
+      </div>
+      <div>
+        <textarea formControlName="remark" ></textarea>
+      </div>
+    </form>
+  }
+</div>
+
