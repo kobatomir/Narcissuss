@@ -5,6 +5,8 @@ import {SourceModify} from '../modify';
 import {SourceQuery, SourceApi} from '../common';
 import {queue} from 'rxjs';
 import {SourceService} from '../common/SourceService';
+import {MenuManager} from '@modules/utils';
+import {SourceCode} from '../code';
 
 @Component({
   selector: 'source-list',
@@ -38,6 +40,10 @@ export class SourceList implements OnInit {
       .afterClosed$.subscribe(s=> s?this.query():null);
    }
 
+   code(data:SourceQuery){
+     this.dialog.open(SourceCode,{disableClose:true,data:data.id});
+   }
+
    async query(){
      const data= await this.api.query();
      this.data.set(data);
@@ -49,5 +55,19 @@ export class SourceList implements OnInit {
 
    link(data:SourceQuery){
      window.open(data.source);
+   }
+
+   menu(data:SourceQuery,event:MouseEvent){
+      MenuManager.ResignMenu([
+        {
+          icon:'',
+          name:"编辑",
+          action:()=> this.edit(data),
+        },{
+           icon:'',
+          name:"脚本",
+          action:()=> this.code(data),
+        }
+      ],event);
    }
 }

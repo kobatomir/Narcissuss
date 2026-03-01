@@ -6,7 +6,7 @@
     </div>
    <div>
      @for (i of data();track i.id){
-       <div class="fluent-item flex-align" on-dblclick="detail(i.id)">
+       <div class="fluent-item flex-align" on-dblclick="detail(i.id)" on-contextmenu="menu(i,$event)">
          <div class="icon flex-center">
            <i class="flex-center icon-{{i.type==0?'earth_24':i.type==1?'image_24':'video_28'}}"></i>
          </div>

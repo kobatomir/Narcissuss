@@ -1,0 +1,21 @@
+<div class="source-code">
+  <div class="flex-align">
+    <span class="flex-1">脚本编辑 - {{data()?.name}}</span>
+    <action-button icon="dismiss_28" dialogClose="" />
+  </div>
+  <div class="fluent-header">
+    <animated-tab [Tabs]="['样式','脚本']"  [Index]="index()" (IndexChange)="index.set($event)" ></animated-tab>
+    <span class="flex-1"></span>
+    <action-button icon="save_20" title="保存" on-click="save()" />
+    <action-button icon="classification_20"  title="清空数据" on-click="clear()" />
+    <action-button icon="arrow_clockwise_20"  title="重新读取" on-click="reset()" />
+    <action-button icon="copy_24"  title="复制到粘贴板" on-click="copy()" />
+  </div>
+  <div class="container">
+    @if(index()==0){
+      <ngx-monaco-editor [options]="monacoOption[0]" [(ngModel)]="code[0]"  />
+    }@else{
+      <ngx-monaco-editor [options]="monacoOption[1]" [(ngModel)]="code[1]"  />
+    }
+  </div>
+</div>

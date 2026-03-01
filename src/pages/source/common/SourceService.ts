@@ -1,6 +1,7 @@
 import {Injectable, signal} from '@angular/core';
 import {SourceEntity} from './SourceEntity';
 import {SourceApi} from './SourceApi';
+import {MonacoOptions} from './MonacoOptions';
 
 @Injectable({providedIn: 'root'})
 export class SourceService {
@@ -14,20 +15,7 @@ export class SourceService {
   constructor(private  api:SourceApi) {
   }
 
-  public monacoOptions=[
-    {
-      automaticLayout:true,
-      theme:'vs-light',
-      language:'javascript',
-      readOnly:true,
-    },
-    {
-      automaticLayout:true,
-      theme:'vs-light',
-      language:'css',
-      readOnly:true,
-    }
-  ]
+  public monacoOptions= MonacoOptions.ReadOnly;
 
   public async detail(id:string) {
     if(this.currentId==id)return;
