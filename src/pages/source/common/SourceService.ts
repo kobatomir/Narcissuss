@@ -9,8 +9,25 @@ export class SourceService {
 
   public detailData = signal<SourceEntity|null>(null);
 
+  public detailType= signal(2);
+
   constructor(private  api:SourceApi) {
   }
+
+  public monacoOptions=[
+    {
+      automaticLayout:true,
+      theme:'vs-light',
+      language:'javascript',
+      readOnly:true,
+    },
+    {
+      automaticLayout:true,
+      theme:'vs-light',
+      language:'css',
+      readOnly:true,
+    }
+  ]
 
   public async detail(id:string) {
     if(this.currentId==id)return;

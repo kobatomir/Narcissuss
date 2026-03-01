@@ -4,7 +4,8 @@
        <div class="icon flex-center">
          <i class="flex-center icon-{{service.detailData()?.type==0?'earth_24':service.detailData()?.type==1?'image_24':'video_28'}}"></i>
        </div>
-       {{service.detailData()?.name}}
+       <span class="flex-1">{{service.detailData()?.name}}</span>
+       <animated-tab [Tabs]="['脚本','样式','预览']"  (IndexChange)="service.detailType.set($event)"  [Index]="service.detailType()"  />
      </div>
     <div class="detail-item flex-align">
       <div class="icon flex-center"><i class="flex-center icon-leaf_one_20"></i></div>
@@ -22,8 +23,18 @@
       <span class="flex-1">{{service.detailData()?.createdTime|date:'yyyy-MM-dd HH:mm:ss'}}</span>
     </div>
     <div class="monaco-container">
-      <ngx-monaco-editor [options]="monacoOption" [ngModel]="monacoOption.language=='javascript'?service.detailData()?.script:  service.detailData()?.style" />
-    </div>
+      @switch (service.detailType()){
+        @case (0){
+          <ngx-monaco-editor [options]="service.monacoOptions[0]" [ngModel]="service.detailData()?.script" />
+        }
+        @case (1){
+          <ngx-monaco-editor [options]="service.monacoOptions[1]" [ngModel]="service.detailData()?.style" />
+        }
+        @default {
+          <iframe  [src]="service.detailData()?.source|urlSecure"></iframe>
+        }
+      }
+     </div>
   </div>
 }
 
