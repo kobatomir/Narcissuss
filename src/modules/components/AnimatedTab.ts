@@ -11,19 +11,20 @@ import {Component, EventEmitter, Input, Output, signal} from '@angular/core';
          {{l}}
        </div>
       }
-      <div class="indicator" [style.transform]="'translateX('+60*Index+'px)'">
+      <div class="indicator" [style.transform]="'translateX('+50*Index+'px)'">
 
       </div>
     </div>
   `,
   styles:[
     ` .animation-tab {
-       min-height: 32px;
+       min-height: 28px;
       position: relative;
 
       .tab-item {
-        width: 60px;
+        width: 50px;
         cursor: pointer;
+        font-size: 12px;
         color: #aaa;
         &.active{
           color:#333;
@@ -33,7 +34,7 @@ import {Component, EventEmitter, Input, Output, signal} from '@angular/core';
         position: absolute;
         bottom: 0;
         height: 2px;
-        width: 60px;
+        width: 50px;
         background-color: #1976d2;
         transition: transform .3s cubic-bezier(.4,0,.2,1) ,
                      width .3s cubic-bezier(.4,0,.2,1) ;

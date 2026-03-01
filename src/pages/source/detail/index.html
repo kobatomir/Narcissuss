@@ -5,12 +5,13 @@
          <i class="flex-center icon-{{service.detailData()?.type==0?'earth_24':service.detailData()?.type==1?'image_24':'video_28'}}"></i>
        </div>
        <span class="flex-1">{{service.detailData()?.name}}</span>
-       <animated-tab [Tabs]="['脚本','样式','预览']"  (IndexChange)="service.detailType.set($event)"  [Index]="service.detailType()"  />
      </div>
     <div class="detail-item flex-align">
       <div class="icon flex-center"><i class="flex-center icon-leaf_one_20"></i></div>
       <div class="tip">地址</div>
-      <span class="flex-1">{{service.detailData()?.source}}</span>
+      <span class="flex-1 link" on-click="window.open(service.detailData()?.source)">{{service.detailData()?.source}}</span>
+      <action-button icon="link_28" on-click="window.open(service.detailData()?.source)" title="打开" />
+      <action-button icon="copy_24" on-click="navigator.clipboard.writeText(service.detailData()?.source??'')" title="复制到粘贴板" />
     </div>
     <div class="detail-item flex-align">
       <div class="icon flex-center"><i class="flex-center icon-leaf_one_20"></i></div>
@@ -21,6 +22,11 @@
       <div class="icon flex-center"><i class="flex-center icon-leaf_one_20"></i></div>
       <div class="tip">创建时间</div>
       <span class="flex-1">{{service.detailData()?.createdTime|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+    </div>
+    <div class="detail-item flex-align animated" >
+      <div class="icon flex-center"><i class="flex-center icon-leaf_one_20"></i></div>
+      <div class="tip">显示</div>
+      <animated-tab [Tabs]="['脚本','样式','预览']"  (IndexChange)="service.detailType.set($event)"  [Index]="service.detailType()"  />
     </div>
     <div class="monaco-container">
       @switch (service.detailType()){

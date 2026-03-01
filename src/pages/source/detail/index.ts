@@ -3,7 +3,7 @@ import {MonacoEditorModule} from 'ngx-monaco-editor-v2';
 import {FormsModule} from '@angular/forms';
 import {SourceService} from '../common/SourceService';
 import {DatePipe} from '@angular/common';
-import {AnimatedTab, UrlPipe} from '@modules/components';
+import {ActionButton, AnimatedTab, UrlPipe} from '@modules/components';
 
 
 
@@ -11,15 +11,15 @@ import {AnimatedTab, UrlPipe} from '@modules/components';
   selector:'source-detail',
   templateUrl:'index.html',
   styleUrl:'index.scss',
-  imports: [MonacoEditorModule, FormsModule, DatePipe, UrlPipe, AnimatedTab]
+  imports: [MonacoEditorModule, FormsModule, DatePipe, UrlPipe, AnimatedTab, ActionButton]
 })
 export class SourceDetail{
 
-    constructor(public  service:SourceService,
-                ) {
+    constructor(public  service:SourceService) {
     }
 
-
+    protected readonly window = window;
+    protected readonly navigator = navigator;
 
 
 }

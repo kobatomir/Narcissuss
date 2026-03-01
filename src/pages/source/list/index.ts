@@ -46,4 +46,8 @@ export class SourceList implements OnInit {
    async detail(id:string){
      await this.service.detail(id);
    }
+
+   link(data:SourceQuery){
+     window.open(data.source);
+   }
 }
