@@ -6,8 +6,6 @@ import {MonacoOptions} from './MonacoOptions';
 @Injectable({providedIn: 'root'})
 export class SourceService {
 
-  private currentId:string|null = null;
-
   public detailData = signal<SourceEntity|null>(null);
 
   public detailType= signal(2);
@@ -18,10 +16,8 @@ export class SourceService {
   public monacoOptions= MonacoOptions.ReadOnly;
 
   public async detail(id:string) {
-    if(this.currentId==id)return;
     const data= await this.api.find(id);
     if(data==null) return;
     this.detailData.set(data);
-    this.currentId=id;
   }
 }

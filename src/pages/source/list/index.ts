@@ -60,13 +60,18 @@ export class SourceList implements OnInit {
    menu(data:SourceQuery,event:MouseEvent){
       MenuManager.ResignMenu([
         {
-          icon:'',
+          icon:'icon-edit_24',
           name:"编辑",
           action:()=> this.edit(data),
         },{
-           icon:'',
+           icon:'icon-code_24',
           name:"脚本",
           action:()=> this.code(data),
+        }
+        ,{
+          icon:'icon-archive_28',
+          name:"详情",
+          action:()=> this.detail(data.id),
         }
       ],event);
    }
