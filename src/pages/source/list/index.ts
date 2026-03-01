@@ -2,8 +2,9 @@ import {Component, OnInit, signal} from '@angular/core';
 import {ActionButton} from '@modules/components';
 import {DialogService} from '@modules/dialog';
 import {SourceModify} from '../modify';
-import {SourceQuery, SourceService} from '../common';
+import {SourceQuery, SourceApi} from '../common';
 import {queue} from 'rxjs';
+import {SourceService} from '../common/SourceService';
 
 @Component({
   selector: 'source-list',
@@ -18,7 +19,9 @@ export class SourceList implements OnInit {
   data = signal<SourceQuery[]>([]);
 
   constructor(private dialog:DialogService,
-              private service:SourceService) {
+              private api:SourceApi,
+              private service:SourceService
+              ) {
   }
 
    async ngOnInit() {
@@ -36,7 +39,11 @@ export class SourceList implements OnInit {
    }
 
    async query(){
-     const data= await this.service.query();
+     const data= await this.api.query();
      this.data.set(data);
+   }
+
+   async detail(id:string){
+     await this.service.detail(id);
    }
 }

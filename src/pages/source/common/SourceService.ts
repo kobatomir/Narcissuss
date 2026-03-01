@@ -1,30 +1,22 @@
-import {Injectable} from '@angular/core';
-import {SourceCreator, SourceQuery, SourceTransfer} from './SourceCreator';
-import {HttpClient} from '@angular/common/http';
-import {IResultModel} from '@modules/model';
-import {firstValueFrom} from 'rxjs';
+import {Injectable, signal} from '@angular/core';
+import {SourceEntity} from './SourceEntity';
+import {SourceApi} from './SourceApi';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class SourceService{
+@Injectable({providedIn: 'root'})
+export class SourceService {
 
-  private url="/api/Source";
+  private currentId:string|null = null;
 
-  constructor(private http: HttpClient) {}
+  public detailData = signal<SourceEntity|null>(null);
 
-  public async create(data:SourceCreator){
-     const result= await  firstValueFrom(this.http.post<IResultModel>(this.url,data));
-     return result.success;
+  constructor(private  api:SourceApi) {
   }
 
-  public async update(data:SourceTransfer){
-    const result= await  firstValueFrom(this.http.put<IResultModel>(this.url,data));
-    return result.success;
-  }
-
-  public async query(){
-    const result= await firstValueFrom(this.http.get<IResultModel<SourceQuery[]>>(this.url));
-    return result?.success?result.data:[];
+  public async detail(id:string) {
+    if(this.currentId==id)return;
+    const data= await this.api.find(id);
+    if(data==null) return;
+    this.detailData.set(data);
+    this.currentId=id;
   }
 }

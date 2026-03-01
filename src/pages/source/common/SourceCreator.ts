@@ -7,10 +7,6 @@ export interface SourceCreator{
   description:string;
 }
 
-export interface SourceTransfer extends SourceCreator{
-  id:string;
-}
 
-export interface SourceQuery extends SourceTransfer{
-  createdTime:Date;
-}
+
+

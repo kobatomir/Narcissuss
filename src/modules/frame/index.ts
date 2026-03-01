@@ -15,7 +15,7 @@ import {NavigateView} from '@modules/navigate';
       <frame-header />
       <div class="frame-container flex">
             <navigate-view />
-            <div class="flex-1 content-container">
+            <div class="flex-1 content-container border-box">
               <router-outlet />
             </div>
       </div>
@@ -30,6 +30,8 @@ import {NavigateView} from '@modules/navigate';
    }
    .content-container{
      padding:10px 20px 20px 20px;
+     height: 100%;
+     border-radius: 8px;
    }
   `]
 })

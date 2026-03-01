@@ -1,9 +1,8 @@
 import {Component, inject} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {SourceCreator, SourceTransfer} from '../common/SourceCreator';
 import {DIALOG_DATA} from '@modules/dialog/InjectionToken';
 import {ActionButton} from '@modules/components';
-import {SourceService} from '../common';
+import {SourceApi, SourceTransfer} from '../common';
 import {DialogRef} from '@modules/dialog/DialogRef';
 import {DialogCloseDirective} from '@modules/dialog';
 
@@ -24,7 +23,7 @@ export class SourceModify{
   data:SourceTransfer = inject(DIALOG_DATA);
 
   constructor(private formBuilder: FormBuilder,
-              private service:SourceService,
+              private service:SourceApi,
               private ref:DialogRef<boolean>) {
     this.build();
   }

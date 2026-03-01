@@ -52,3 +52,11 @@ body{
     box-shadow:  0 1.6px 3.6px 0 rgba(0, 0, 0, 0.133) ,  0 0.3px 0.9px 0 rgba(0, 0, 0, 0.11);
   }
 }
+.fluent-header{
+  min-height: 40px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+}

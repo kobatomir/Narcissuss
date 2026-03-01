@@ -1,3 +1,27 @@
 .source-detail{
-
+  background-color: #fffa;
+  border-radius: 8px;
+  .icon{
+    width: 40px;
+    color: var(--main-color);
+  }
+  .detail-item{
+    padding: 10px 10px;
+    .tip{
+      color: #bbb;
+      font-size: 14px;
+      width: 100px;
+    }
+  }
+  .monaco-container{
+    width: 100%;
+    height: calc(100% - 160px);
+    padding: 20px;
+    box-sizing: border-box;
+    ngx-monaco-editor{
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+  }
 }
