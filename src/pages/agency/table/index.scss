@@ -1,0 +1,20 @@
+.agency-table {
+  .table-header {
+    background-color: #fffc;
+  }
+
+  .fluent-item {
+    font-size: 14px;
+
+    .index {
+      display: inline-block;
+      width: 60px;
+    }
+  }
+
+  .table-container {
+    width: 100%;
+    height: calc(100% - 100px);
+    overflow-y: auto;
+  }
+}

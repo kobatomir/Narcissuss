@@ -1,0 +1,25 @@
+<div class="agency-table full">
+   <div class="fluent-header">
+     代理
+   </div>
+  <div class="table-header fluent-item flex-align">
+     <span class="index">序号</span>
+     <span class="flex-1">名称</span>
+     <span class="flex-1">源地址</span>
+     <span class="flex-1">目标地址</span>
+     <span class="flex-1">备注</span>
+     <span class="index">启用</span>
+  </div>
+  <div class="table-container">
+     @for(item of service.data();track item.id){
+       <div class="fluent-item flex-align">
+         <span class="index">{{$index+1}}</span>
+         <span class="flex-1">{{item.name }}</span>
+         <span class="flex-1">{{ item.source }}</span>
+         <span class="flex-1">{{ item.target }}</span>
+         <span class="flex-1">{{ item.remark }}</span>
+         <span class="index">{{ item.enabled?'已启用':'未启用' }}</span>
+       </div>
+     }
+  </div>
+</div>
